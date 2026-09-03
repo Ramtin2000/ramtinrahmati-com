@@ -201,7 +201,7 @@ export const notes: Note[] = [
     title: "Three confident benchmark revisions, all wrong",
     summary:
       "Trusting an estimator instead of the provider's own usage counters produced clean, believable numbers that were measurement artifacts — three times. What it took to catch that, and why no dollar figure in context-slim comes from the estimator anymore.",
-    href: "https://github.com/Ramtin2000/context-slim/blob/main/METHODS.md",
+    href: "https://github.com/Ramtin2000/context-slim/blob/master/METHODS.md",
     hrefLabel: "METHODS.md",
   },
 ];
