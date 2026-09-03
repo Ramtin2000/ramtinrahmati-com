@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --series-1: #3987e5; /* blue   — don't prune (baseline) */
+  --series-2: #d95926; /* orange — oldest-first */
+  --series-3: #199e70; /* aqua   — newest-first */
+  --chart-surface: #161616;
+  --chart-grid: #2c2c2a;
+  --chart-axis: #383835;
+  --chart-muted: #898781;
+  --good: #0ca30c;
+  --critical: #e66767;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0a0a;
+  color: #e7e7e5;
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  background: rgba(57, 135, 229, 0.35);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--series-1);
+  outline-offset: 2px;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 8px;
+  border: 2px solid #0a0a0a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
