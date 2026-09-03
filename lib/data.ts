@@ -9,6 +9,7 @@ export const site = {
 
 export const nav = [
   { label: "Work", href: "#work" },
+  { label: "Experience", href: "#experience" },
   { label: "context-slim", href: "#context-slim" },
   { label: "Notes", href: "#notes" },
   { label: "Contact", href: "#contact" },
@@ -68,19 +69,76 @@ export const projects: Project[] = [
   {
     id: "yeksaz",
     name: "Yeksaz",
-    nativeName: "یکساز",
-    tagline: "A Persian-first project operating system for construction — from site reports to an AI employer assistant.",
+    tagline: "A localized project operating system for construction — from site reports to an AI employer assistant.",
     problem:
-      "Construction projects fail quietly: decisions live in phone calls, voice notes, and WhatsApp threads instead of one record. The کارفرما (project owner) is paying for everything but learns about problems last, and Tuesday's decision gets silently overwritten by Thursday's group chat.",
+      "Construction projects fail quietly: decisions live in phone calls, voice notes, and WhatsApp threads instead of one record. The project owner is paying for everything but learns about problems last, and Tuesday's decision gets silently overwritten by Thursday's group chat.",
     solution:
-      "Yeksaz holds the whole project — team, tasks by phase/operation, meetings, daily site reports, warehouse and procurement, the money ledger, and plan uploads — as one searchable record. On top of that sits an Employer Assistant that orients, surfaces decision cards, and drafts actions in Persian, and an Agent Hub the wider team can talk to in natural language. Both are built around one non-negotiable: nothing sends, pays, or commits without an explicit human تأیید (confirm).",
-    stack: ["Persian-first UI", "Voice transcription", "RAG over project memory", "Wallet/ledger engine", "Role-based permissions"],
+      "Yeksaz holds the whole project — team, tasks by phase/operation, meetings, daily site reports, warehouse and procurement, the money ledger, and plan uploads — as one searchable record. On top of that sits an Employer Assistant that orients, surfaces decision cards, and drafts actions in the team's own language, and an Agent Hub the wider team can talk to in natural language. Both are built around one non-negotiable: nothing sends, pays, or commits without an explicit human confirmation.",
+    stack: ["Localized UI", "Voice transcription", "RAG over project memory", "Wallet/ledger engine", "Role-based permissions"],
     role: "Product and systems architecture for the Employer Assistant and Agent Hub confirm-before-commit pattern.",
     metrics: [
       { label: "human-in-the-loop gates", value: "every write" },
       { label: "assistant surfaces", value: "2 (owner + team)" },
-      { label: "language", value: "Persian-native" },
+      { label: "localization", value: "native-language UI" },
     ],
+  },
+];
+
+export type ExperienceEntry = {
+  company: string;
+  role: string;
+  dates: string;
+  location?: string;
+  description?: string;
+  highlights?: string[];
+};
+
+export const experience: ExperienceEntry[] = [
+  {
+    company: "Raw",
+    role: "Founding Engineer",
+    dates: "Dec 2024 – Aug 2025",
+    location: "United States",
+    description:
+      "A health and nutrition tracking platform with intelligent personalization — a React Native (Expo) app on the front end, backed by a food-recommendation and dietary-insight system on the back end.",
+    highlights: [
+      "React Native + Expo app with real-time health-metric visualization and camera-based food analysis",
+      "Dynamic food recommendation system adapting to individual health profiles",
+      "RAG-based retrieval for personalized dietary insights, plus NLP for automated food analysis",
+      "Phone-verified auth and an adaptive learning system for surfacing health patterns",
+    ],
+  },
+  {
+    company: "micro1",
+    role: "Frontend Developer",
+    dates: "Jun 2021 – Jan 2025",
+    location: "United States",
+    description:
+      "3.5 years at a fast-growing AI company, across five high-impact projects — React.js front-end work applying generative AI, AWS, and adaptive-learning technologies.",
+  },
+  {
+    company: "Megastudio",
+    role: "Full-Stack Developer",
+    dates: "Apr 2024 – Aug 2024",
+    description:
+      "A full-stack yoga and Lagree app (Tailwind, Express, MongoDB, TypeScript) with a multi-role panel system for admins, users, and coaches, a secure payment module, and an internal gamification feature.",
+  },
+  {
+    company: "Maven: The Serendipity Network",
+    role: "Frontend Developer",
+    dates: "Feb 2023 – Sep 2023",
+    location: "United States",
+  },
+  {
+    company: "Udefy",
+    role: "React Developer",
+    dates: "Aug 2022 – Mar 2023",
+  },
+  {
+    company: "Stock Sniper Trading Corp",
+    role: "React / Django Developer",
+    dates: "Nov 2021 – Dec 2021",
+    location: "Canada",
   },
 ];
 
