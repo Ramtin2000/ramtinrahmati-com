@@ -5,10 +5,10 @@ export default function SelectedWork() {
   return (
     <section id="work" className="border-b border-neutral-800">
       <div className="mx-auto max-w-content px-6 py-20">
-        <SectionHeading eyebrow="Selected work" title="Three systems, one belief" />
+        <SectionHeading eyebrow="Selected work" title="Four projects, one belief" />
         <p className="mt-3 max-w-2xl text-sm text-neutral-500">
-          A cost model, a support platform, and a project operating system —
-          each one exists because the honest answer to &ldquo;can AI just do
+          A fine-tuning study, a cost model, a support platform, and a project
+          operating system — each one exists because the honest answer to &ldquo;can AI just do
           this?&rdquo; is &ldquo;yes, with a human confirming the parts that
           matter.&rdquo;
         </p>
@@ -17,7 +17,7 @@ export default function SelectedWork() {
           {projects.map((p) => (
             <details
               key={p.id}
-              id={p.id === "context-slim" ? undefined : p.id}
+              id={p.id === "modelforge" || p.id === "context-slim" ? undefined : p.id}
               className="group rounded-lg border border-neutral-800 bg-raised open:bg-raised"
             >
               <summary className="flex cursor-pointer list-none flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between">

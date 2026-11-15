@@ -23,19 +23,19 @@ export default function Hero() {
           7+ years with React, Next.js, React Native, Node.js and Python. Nearly
           four years at micro1 as it grew from an agency into an AI data
           platform, then founding and CTO roles shipping products solo,
-          including LLM features and{" "}
-          <a href="#context-slim" className="text-neutral-200 underline decoration-neutral-700 underline-offset-4 hover:decoration-neutral-400">
-            context-slim
+          including LLM features, a fine-tuning study (
+          <a href="#modelforge" className="text-neutral-200 underline decoration-neutral-700 underline-offset-4 hover:decoration-neutral-400">
+            ModelForge
           </a>
-          , an open-source tool for LLM agent context costs.
+          ), and an open-source tool for LLM agent context costs.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <a
-            href="#context-slim"
+            href="#modelforge"
             className="inline-flex items-center gap-2 rounded-md bg-neutral-100 px-4 py-2.5 text-sm font-medium text-neutral-900 transition-colors hover:bg-white"
           >
-            Read the benchmark
+            Read the fine-tuning study
             <ArrowUpRight size={15} />
           </a>
           <a

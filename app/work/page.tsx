@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import SelectedWork from "@/components/SelectedWork";
 import Experience from "@/components/Experience";
+import ModelForgeSection from "@/components/ModelForgeSection";
 import BenchmarkSection from "@/components/BenchmarkSection";
 import Notes from "@/components/Notes";
 import Footer from "@/components/Footer";
@@ -10,7 +11,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Ramtin Rahmati — Full-Stack Engineer (React, Next.js, React Native, Node.js, AI)",
   description:
-    "Full-stack engineer with 7+ years building web and mobile products for startups, from first version to production, including LLM features. Projects: context-slim, Telely, Yeksaz.",
+    "Full-stack engineer with 7+ years building web and mobile products for startups, from first version to production, including LLM features. Projects: ModelForge, context-slim, Telely, Yeksaz.",
   alternates: { canonical: "/work/" },
   openGraph: {
     title: "Ramtin Rahmati — Full-Stack Engineer",
@@ -30,6 +31,7 @@ export default function Work() {
         <Hero />
         <SelectedWork />
         <Experience />
+        <ModelForgeSection />
         <BenchmarkSection />
         <Notes />
       </main>

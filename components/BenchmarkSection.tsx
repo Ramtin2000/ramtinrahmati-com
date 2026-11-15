@@ -1,12 +1,6 @@
 import { AlertTriangle } from "lucide-react";
-import {
-  benchmarkTable,
-  caveats,
-  costModelValidation,
-  dedupeBench,
-} from "@/lib/data";
+import { benchmarkTable, caveats } from "@/lib/data";
 import { SectionHeading } from "@/components/SelectedWork";
-import CacheHitChart from "@/components/CacheHitChart";
 import CodeBlock from "@/components/CodeBlock";
 
 const INSTALL_SNIPPET = `pip install git+https://github.com/Ramtin2000/context-slim`;
@@ -26,18 +20,12 @@ for v in p.verdicts:
 messages, report = apply(messages, p)
 print(report)`;
 
-const maxDedupeMs = Math.max(...dedupeBench.map((d) => d.ms));
-function barWidthPct(ms: number) {
-  // log scale so the 0.24–1.06ms bars stay visible next to 25.26ms
-  return (Math.log10(ms + 1) / Math.log10(maxDedupeMs + 1)) * 100;
-}
-
 export default function BenchmarkSection() {
   return (
     <section id="context-slim" className="border-b border-neutral-800">
-      <div className="mx-auto max-w-content px-6 py-20">
+      <div className="mx-auto max-w-content px-6 py-14">
         <SectionHeading
-          eyebrow="Open-source infrastructure · flagship"
+          eyebrow="Open-source tool"
           title="context-slim: is pruning even worth it?"
         />
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-neutral-400">
@@ -105,96 +93,6 @@ export default function BenchmarkSection() {
               </table>
             </div>
 
-            <div className="mt-4 rounded-lg border border-neutral-800 bg-raised p-5">
-              <h4 className="text-xs font-medium uppercase tracking-wide text-neutral-500">
-                Cache hit rate by turn
-              </h4>
-              <div className="mt-4">
-                <CacheHitChart />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <div className="min-w-0 rounded-lg border border-neutral-800 bg-raised p-5">
-            <h4 className="text-xs font-medium uppercase tracking-wide text-neutral-500">
-              Why the dedupe is built the way it is
-            </h4>
-            <p className="mt-2 text-sm text-neutral-400">
-              A byte-level rolling hash is one interpreter iteration per
-              byte in pure Python. <code className="font-mono text-neutral-300">str.split</code> +{" "}
-              <code className="font-mono text-neutral-300">blake2b</code> does
-              the same job at block granularity with both halves running in
-              C — measured on ~93 KB.
-            </p>
-            <ul className="mt-4 space-y-3">
-              {dedupeBench.map((d) => (
-                <li key={d.label}>
-                  <div className="flex items-baseline justify-between gap-3">
-                    <span className="text-xs text-neutral-400">
-                      {d.label}
-                    </span>
-                    <span className="tabular-nums shrink-0 font-mono text-xs text-neutral-300">
-                      {d.ms}ms
-                    </span>
-                  </div>
-                  <div className="mt-1.5 h-1.5 rounded-full bg-neutral-800">
-                    <div
-                      className={`h-full rounded-full ${
-                        d.rejected ? "bg-[var(--critical)]/70" : "bg-[var(--series-3)]"
-                      }`}
-                      style={{ width: `${barWidthPct(d.ms)}%` }}
-                    />
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-4 text-xs text-neutral-500">
-              <strong className="text-neutral-300">104×</strong> faster on the
-              hashing step. The rejected implementation ships in the repo so
-              the comparison is measured, not asserted.
-            </p>
-          </div>
-
-          <div className="min-w-0 rounded-lg border border-neutral-800 bg-raised p-5">
-            <h4 className="text-xs font-medium uppercase tracking-wide text-neutral-500">
-              The cost model is checkable
-            </h4>
-            <p className="mt-2 text-sm text-neutral-400">
-              This predicts how much of a request the API will report as
-              cached <em>before</em> the call, then diffs against{" "}
-              <code className="font-mono text-neutral-300">
-                usage.prompt_tokens_details
-              </code>
-              . Measured over 24 live requests.
-            </p>
-            <table className="mt-4 w-full border-collapse text-sm">
-              <thead>
-                <tr className="border-b border-neutral-800 text-left text-xs uppercase tracking-wide text-neutral-500">
-                  <th className="py-2 pr-4 font-medium">Metric</th>
-                  <th className="py-2 pr-4 font-medium">Raw</th>
-                  <th className="py-2 font-medium">Calibrated</th>
-                </tr>
-              </thead>
-              <tbody>
-                {costModelValidation.map((row) => (
-                  <tr key={row.metric} className="border-b border-neutral-800/60 last:border-0">
-                    <td className="py-2.5 pr-4 text-neutral-300">{row.metric}</td>
-                    <td className="tabular-nums py-2.5 pr-4 font-mono text-[var(--critical)]">
-                      {row.raw}
-                    </td>
-                    <td className="tabular-nums py-2.5 font-mono text-[var(--good)]">
-                      {row.calibrated}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <p className="mt-4 text-xs text-neutral-500">
-              No dollar figure in the repo comes from the estimator — those
-              all read the provider&apos;s usage counters.
-            </p>
           </div>
         </div>
 
@@ -202,7 +100,7 @@ export default function BenchmarkSection() {
           <AlertTriangle size={18} className="mt-0.5 shrink-0 text-amber-500" />
           <div>
             <h4 className="text-xs font-medium uppercase tracking-wide text-amber-500">
-              Caveat this properly
+              Caveats
             </h4>
             <ul className="mt-2 space-y-1.5">
               {caveats.map((c) => (

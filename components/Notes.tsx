@@ -12,7 +12,7 @@ export default function Notes() {
           straight to the source.
         </p>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
           {notes.map((n) => (
             <a
               key={n.title}

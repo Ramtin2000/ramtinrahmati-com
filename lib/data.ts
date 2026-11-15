@@ -10,7 +10,7 @@ export const site = {
 export const nav = [
   { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
-  { label: "context-slim", href: "#context-slim" },
+  { label: "ModelForge", href: "#modelforge" },
   { label: "Notes", href: "#notes" },
   { label: "Contact", href: "#contact" },
 ];
@@ -30,6 +30,21 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: "modelforge",
+    name: "ModelForge",
+    tagline: "A fine-tuning study on one laptop: when does a small tuned model actually beat rules and prompting?",
+    problem:
+      "\"Just fine-tune a model\" is often the wrong answer. Two earlier experiments (fault interpretation, ticket extraction) showed a plain lookup or regex matching the model, so tuning wasn't worth it. The question became: on what kind of task does fine-tuning pay off, and how do you prove it without fooling yourself?",
+    solution:
+      "One LoRA adapter on Qwen3-4B, trained locally with MLX in about 80 minutes, handles three technician skills (extract a structured ticket from a messy multilingual note, triage a request, map a request to drive parameters). It was compared against deterministic rules and the same model with a detailed prompt, on a test set written independently by another model, with baselines and test frozen by checksum before results and the success bar set in advance.",
+    stack: ["Python", "MLX-LM (LoRA)", "Qwen3-4B", "FastAPI", "React + Vite", "pytest"],
+    role: "Sole author: experiment design, data generation, training, evaluation, local API and demo.",
+    metrics: [
+      { label: "ticket extraction", value: "0.95 vs 0.85" },
+      { label: "triage", value: "0.85 vs 0.65" },
+    ],
+  },
   {
     id: "context-slim",
     name: "context-slim",
@@ -161,31 +176,9 @@ export const benchmarkTable = [
   { strategy: "prune newest-first", tokensSent: "735,770", cacheHit: 81.0, costPerArm: "$0.009376", vsBaseline: "+32.9%", isBaseline: false },
 ];
 
-export const cacheHitByTurn = {
-  turns: [2, 5, 8, 11, 14, 17, 20],
-  series: [
-    { key: "dontPrune", label: "don't prune", color: "var(--series-1)", values: [95, 96, 96, 96, 77, 97, 97] },
-    { key: "oldestFirst", label: "oldest-first", color: "var(--series-2)", values: [95, 96, 63, 77, 76, 77, 75] },
-    { key: "newestFirst", label: "newest-first", color: "var(--series-3)", values: [95, 96, 93, 91, 76, 77, 60] },
-  ],
-};
-
-export const dedupeBench = [
-  { label: "rejected: 64-byte rolling hash (per-byte Python loop)", ms: 25.26, rejected: true },
-  { label: "shipped: str.split + blake2b (per-block loop)", ms: 0.24, rejected: false },
-  { label: "shipped: full dedupe_blocks pass", ms: 0.54, rejected: false },
-  { label: "shipped: collapse_whitespace", ms: 1.06, rejected: false },
-];
-
-export const costModelValidation = [
-  { metric: "prompt-token error (median)", raw: "26.11%", calibrated: "0.64%" },
-  { metric: "cached-token error (median)", raw: "25.80%", calibrated: "0.84%" },
-];
-
 export const caveats = [
   "8k-token prefixes, 20-turn loops, synthetic conversations — one model (gpt-5.6-luna), one account.",
   "Larger contexts over longer horizons are untested and may behave differently.",
-  "Three earlier revisions of this experiment produced confident numbers that turned out to be artifacts — see METHODS.md for what went wrong and how it was caught.",
 ];
 
 export type Note = {
@@ -204,17 +197,29 @@ export const notes: Note[] = [
     hrefLabel: "README.md",
   },
   {
-    title: "A byte-level rolling hash doesn't fit a 5ms budget",
-    summary:
-      "The textbook dedupe approach is a per-byte rolling hash — one interpreter iteration per byte in pure Python. Swapping to str.split + blake2b at block granularity runs both halves in C: 104× faster on the hashing step alone.",
-    href: "https://github.com/Ramtin2000/context-slim#readme",
-    hrefLabel: "README.md",
-  },
-  {
     title: "Three confident benchmark revisions, all wrong",
     summary:
       "Trusting an estimator instead of the provider's own usage counters produced clean, believable numbers that were measurement artifacts — three times. What it took to catch that, and why no dollar figure in context-slim comes from the estimator anymore.",
     href: "https://github.com/Ramtin2000/context-slim/blob/master/METHODS.md",
     hrefLabel: "METHODS.md",
   },
+];
+
+export const modelforgeResults = [
+  { skill: "Extract a ticket from a messy note", rules: "0.75", prompted: "0.85", tuned: "0.95", gain: "+10.6 pts", sig: true },
+  { skill: "Triage a request (answer / ask / escalate / refuse)", rules: "0.56", prompted: "0.65", tuned: "0.85", gain: "+20.0 pts", sig: true },
+  { skill: "Map a request to drive parameters", rules: "0.67", prompted: "0.91", tuned: "0.94", gain: "+2.7 pts", sig: false },
+];
+
+export const modelforgeFindings = [
+  "Fine-tuning won on two of three skills, against the best non-training alternative, with the 95% interval excluding zero. On parameter configuration the prompted model was already strong and the gain was not significant.",
+  "Earlier experiments are reported too: fault interpretation (a plain lookup matched the tuned model) and ticket extraction (a regex scored 0.95, so tuning was stopped at the gate).",
+  "Perfect refusal of unsafe requests, but 5 of 23 harmless triage cases were still escalated, mostly notes that sounded urgent or worried.",
+];
+
+export const modelforgeCaveats = [
+  "One training run, one seed, 80 test notes per skill. Intervals cover test sampling only.",
+  "Notes were written by another model from directives, so labels can be noisier than a human-annotated set. Real technician text is untested.",
+  "Baselines were written once and not tuned; a more iterated prompt could narrow the gap.",
+  "Decision support on a synthetic benchmark, not a diagnostic or safety system.",
 ];
