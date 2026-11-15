@@ -4,7 +4,7 @@
 export const landingConfig = {
   // Your Cal.com link without the domain, e.g. "ramtin/20min".
   // While it still starts with "[", the page shows an email fallback instead of the calendar.
-  bookingLink: "[YOUR_BOOKING_LINK]",
+  bookingLink: "https://cal.com/ramtin-pg5rcy/30min",
 
   // Domain registered in Plausible, e.g. "ramtinrahmati.com". Empty = no analytics script loaded.
   plausibleDomain: "",
