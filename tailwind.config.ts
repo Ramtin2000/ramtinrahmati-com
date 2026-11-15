@@ -26,6 +26,8 @@ const config: Config = {
           "accent-hover": "var(--lp-accent-hover)",
           "accent-soft": "var(--lp-accent-soft)",
           "on-accent": "var(--lp-on-accent)",
+          good: "var(--lp-good)",
+          "good-soft": "var(--lp-good-soft)",
         },
       },
       fontFamily: {

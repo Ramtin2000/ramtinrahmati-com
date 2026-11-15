@@ -29,6 +29,10 @@
   --lp-accent-hover: #17539f;
   --lp-accent-soft: #e6effa;
   --lp-on-accent: #ffffff;
+  --lp-grid: rgba(0, 0, 0, 0.05);
+  --lp-glow: rgba(29, 100, 192, 0.12);
+  --lp-good: #15803d;
+  --lp-good-soft: #e7f5ec;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,7 +49,23 @@
     --lp-accent-hover: #5c9ded;
     --lp-accent-soft: #10233b;
     --lp-on-accent: #0a0a0a;
+    --lp-grid: rgba(255, 255, 255, 0.045);
+    --lp-glow: rgba(57, 135, 229, 0.16);
+    --lp-good: #4ade80;
+    --lp-good-soft: #0f2a1a;
   }
+}
+
+.lp-grid {
+  background-image:
+    linear-gradient(to right, var(--lp-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--lp-grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 40%, transparent 100%);
+}
+
+.lp-glow {
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, var(--lp-glow), transparent 70%);
 }
 
 html:has(.landing) {
