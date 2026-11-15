@@ -20,10 +20,9 @@ export default function Hero() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-400 md:text-lg">
-          7+ years with React, Next.js, React Native, Node.js and Python. Nearly
-          four years at micro1 as it grew from an agency into an AI data
-          platform, then founding and CTO roles shipping products solo,
-          including LLM features, a fine-tuning study (
+          7+ years with React, Next.js, React Native, Node.js and Python. I
+          take products from first version to release, often solo: mobile
+          apps, backends, LLM features, a fine-tuning study (
           <a href="#modelforge" className="text-neutral-200 underline decoration-neutral-700 underline-offset-4 hover:decoration-neutral-400">
             ModelForge
           </a>
