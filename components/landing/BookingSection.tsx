@@ -14,6 +14,8 @@ declare global {
 
 const NS = "intro";
 const isPlaceholder = landingConfig.bookingLink.startsWith("[");
+// Accept either "user/event" or a full "https://cal.com/user/event" URL.
+const calLink = landingConfig.bookingLink.replace(/^https?:\/\/(app\.)?cal\.com\//, "");
 
 // Cal.com's official embed loader, deferred until the section is near the viewport.
 function loadCal() {
@@ -73,7 +75,7 @@ export default function BookingSection() {
         const cal = window.Cal.ns[NS];
         cal("inline", {
           elementOrSelector: el,
-          calLink: landingConfig.bookingLink,
+          calLink,
           config: { layout: "month_view", theme: dark ? "dark" : "light" },
         });
         cal("ui", {
@@ -130,7 +132,7 @@ export default function BookingSection() {
                 className="min-h-[640px] w-full overflow-hidden rounded-xl border border-lp-border bg-lp-surface"
               />
               <noscript>
-                <a href={`https://cal.com/${landingConfig.bookingLink}`} className="text-lp-link underline">
+                <a href={`https://cal.com/${calLink}`} className="text-lp-link underline">
                   Open the booking page
                 </a>
               </noscript>

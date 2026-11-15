@@ -2,7 +2,7 @@
 // See README → "Landing page" for details.
 
 export const landingConfig = {
-  // Your Cal.com link without the domain, e.g. "ramtin/20min".
+  // Your Cal.com link, e.g. "ramtin/20min" or "https://cal.com/ramtin/20min".
   // While it still starts with "[", the page shows an email fallback instead of the calendar.
   bookingLink: "https://cal.com/ramtin-pg5rcy/30min",
 
