@@ -127,7 +127,7 @@ export const experience: ExperienceEntry[] = [
     dates: "Jun 2021 – Jan 2025",
     location: "United States",
     description:
-      "Joined at the agency stage and stayed 3 years 8 months as the company grew into an AI data platform valued at around $4B. Built the frontend of micro1's core HR system in React, and client products in React and Next.js: PraxisPro, RigsEye, StealthSeller, ZehMizeh, WePickUpLay and Marble Legal Solutions.",
+      "Joined at the agency stage and stayed 3 years 8 months as the company grew into an AI data platform. Built client products in React and Next.js: PraxisPro, RigsEye, StealthSeller, ZehMizeh, WePickUpLay and Marble Legal Solutions.",
   },
   {
     company: "Megastudio",
