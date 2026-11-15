@@ -15,17 +15,19 @@ export default function Hero() {
         </div>
 
         <h1 className="max-w-3xl text-4xl font-medium leading-[1.1] tracking-tight text-neutral-50 md:text-6xl">
-          Systems architecture for AI products{" "}
-          <span className="text-neutral-500">and the infrastructure underneath them.</span>
+          Full-stack engineer building web and mobile products{" "}
+          <span className="text-neutral-500">from first version to production.</span>
         </h1>
 
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-400 md:text-lg">
-          I build support and RAG platforms, construction-ops systems, and{" "}
+          7+ years with React, Next.js, React Native, Node.js and Python. Nearly
+          four years at micro1 as it grew from an agency into an AI data
+          platform, then founding and CTO roles shipping products solo,
+          including LLM features and{" "}
           <a href="#context-slim" className="text-neutral-200 underline decoration-neutral-700 underline-offset-4 hover:decoration-neutral-400">
             context-slim
           </a>
-          , a cache-aware controller that stops LLM agent loops from paying for
-          context management they didn&apos;t need.
+          , an open-source tool for LLM agent context costs.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -50,7 +52,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 rounded-md border border-neutral-800 px-4 py-2.5 text-sm text-neutral-400 transition-colors hover:border-neutral-700 hover:text-neutral-200"
           >
             <Mail size={15} />
-            Book a systems audit
+            Get in touch
           </a>
         </div>
       </div>

@@ -134,3 +134,9 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #333333;
 }
+
+/* Cal.com's frame doesn't declare a color scheme; match it so browsers don't paint a white backdrop in dark mode. */
+cal-modal-box,
+cal-inline {
+  color-scheme: light;
+}

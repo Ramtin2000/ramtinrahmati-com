@@ -7,12 +7,11 @@ export default function Footer() {
       <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 className="text-2xl font-medium tracking-tight text-neutral-50">
-            Let&apos;s talk about your context costs.
+            Let&apos;s build something.
           </h2>
           <p className="mt-2 max-w-md text-sm text-neutral-500">
-            Systems advisory, token audits, and context-middleware
-            deployments for teams running multi-turn agent loops in
-            production.
+            Web and mobile products, AI features, and the backend
+            underneath. Open to remote roles and freelance projects.
           </p>
         </div>
 

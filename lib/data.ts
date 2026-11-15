@@ -1,10 +1,10 @@
 export const site = {
   name: "Ramtin Rahmati",
-  role: "Systems & AI Architecture",
+  role: "Full-Stack Engineer",
   email: "ramtin.rahmati79@gmail.com",
   github: "https://github.com/Ramtin2000",
   linkedin: "https://www.linkedin.com/in/ramtin-rahmati-0309631b3/",
-  status: "Open for systems advisory — Q4 2026",
+  status: "Istanbul · Open to remote work",
 };
 
 export const nav = [
@@ -95,6 +95,19 @@ export type ExperienceEntry = {
 
 export const experience: ExperienceEntry[] = [
   {
+    company: "Reerize",
+    role: "CTO & Technical Lead",
+    dates: "Sep 2026 – Present",
+    location: "United Arab Emirates",
+    description:
+      "A styling contest app with blind judging. Designed and shipped the product end to end: catalog, entry flow, AI-rendered looks, voting and ranking.",
+    highlights: [
+      "Blind pool voting instead of star ratings and leaderboards, so popularity can't affect results",
+      "Entries stay hidden during open rounds so voters don't anchor on existing submissions",
+      "Narrowed the product from four verticals to fashion; running the launch, including recruiting first entrants",
+    ],
+  },
+  {
     company: "Raw",
     role: "Founding Engineer",
     dates: "Dec 2024 – Aug 2025",
@@ -114,7 +127,7 @@ export const experience: ExperienceEntry[] = [
     dates: "Jun 2021 – Jan 2025",
     location: "United States",
     description:
-      "3.5 years at a fast-growing AI company, across five high-impact projects — React.js front-end work applying generative AI, AWS, and adaptive-learning technologies.",
+      "Joined at the agency stage and stayed 3 years 8 months as the company grew into an AI data platform valued at around $4B. Built the frontend of micro1's core HR system in React, and client products in React and Next.js: PraxisPro, RigsEye, StealthSeller, ZehMizeh, WePickUpLay and Marble Legal Solutions.",
   },
   {
     company: "Megastudio",

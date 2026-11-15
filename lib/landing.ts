@@ -22,6 +22,7 @@ export const landing = {
     { label: "What I build", href: "#build" },
     { label: "How it works", href: "#how" },
     { label: "FAQ", href: "#faq" },
+    { label: "Work", href: "/work/" },
   ],
   hero: {
     pill: "Taking on new projects",

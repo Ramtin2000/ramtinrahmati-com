@@ -8,14 +8,14 @@ import Notes from "@/components/Notes";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Ramtin Rahmati — Systems & AI Architecture",
+  title: "Ramtin Rahmati — Full-Stack Engineer (React, Next.js, React Native, Node.js, AI)",
   description:
-    "Systems architecture for AI products and the infrastructure underneath them: context-slim (LLM cache-cost controller), Telely (AI support), and Yeksaz (construction ops).",
+    "Full-stack engineer with 7+ years building web and mobile products for startups, from first version to production, including LLM features. Projects: context-slim, Telely, Yeksaz.",
   alternates: { canonical: "/work/" },
   openGraph: {
-    title: "Ramtin Rahmati — Systems & AI Architecture",
+    title: "Ramtin Rahmati — Full-Stack Engineer",
     description:
-      "Systems architecture for AI products and the infrastructure underneath them.",
+      "Web and mobile products for startups, from first version to production, including LLM features.",
     url: "https://ramtinrahmati.com/work/",
     siteName: "Ramtin Rahmati",
     type: "website",
