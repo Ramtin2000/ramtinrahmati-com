@@ -15,8 +15,60 @@
   --critical: #e66767;
 }
 
+/* Landing page ("/") tokens — light by default, dark follows the system. */
+:root {
+  --lp-bg: #fafaf9;
+  --lp-surface: #ffffff;
+  --lp-border: #e5e5e3;
+  --lp-border-strong: #a3a3a0;
+  --lp-text: #171717;
+  --lp-muted: #4a4a48;
+  --lp-subtle: #5f5f5c;
+  --lp-link: #1d64c0;
+  --lp-accent: #1d64c0;
+  --lp-accent-hover: #17539f;
+  --lp-accent-soft: #e6effa;
+  --lp-on-accent: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --lp-bg: #0a0a0a;
+    --lp-surface: #141414;
+    --lp-border: #262626;
+    --lp-border-strong: #525252;
+    --lp-text: #ededeb;
+    --lp-muted: #b0b0ac;
+    --lp-subtle: #9a9a96;
+    --lp-link: #6aa6ee;
+    --lp-accent: #3987e5;
+    --lp-accent-hover: #5c9ded;
+    --lp-accent-soft: #10233b;
+    --lp-on-accent: #0a0a0a;
+  }
+}
+
+html:has(.landing) {
+  color-scheme: light dark;
+}
+
+body:has(.landing) {
+  background: var(--lp-bg);
+  color: var(--lp-text);
+}
+
+.landing :focus-visible {
+  outline-color: var(--lp-accent);
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
